@@ -1,4 +1,4 @@
-/* whatsapp web chat list tex to speech */
+/* whatsapp web chat list text-to-speech */
 /* whatsapp seems to hide the top nodes when u scroll to bottom & vice versa */
 var whatsapp_timerId = null;
 var whatsapp_iter = function(){
@@ -66,7 +66,14 @@ var msg = new SpeechSynthesisUtterance(initNotice);
 window.speechSynthesis.speak(msg);
 console.log(initNotice);
 
-// get online status of a user (the currently focused chat window)
+/*
+ * get online status of a user (the currently focused chat window) 
+ * 
+ * this selector:
+ *    '.pane-header .chat-body .emojitext'
+ * copied from Robert Heaton website
+ *    https://robertheaton.com/2017/10/09/tracking-friends-and-strangers-using-whatsapp/
+ */
 var whatsapp_onlinestatus_timerId = null;
 var whatsapp_online = function(){
     var sel = document.querySelectorAll('.pane-header .chat-body .emojitext')
