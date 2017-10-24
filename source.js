@@ -3,7 +3,7 @@
 var whatsapp_timerId = null;
 var whatsapp_iter = function(){
     // clear the timer
-    window.clearInterval(whatsapp_timerId);
+    if (whatsapp_timerId) window.clearInterval(whatsapp_timerId);
 
     var root = document.getElementsByClassName('infinite-list-item');
     var max = root.length;
