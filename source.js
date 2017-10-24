@@ -94,13 +94,15 @@ var whatsapp_online = function(){
     
     var timestamp = new Date().toLocaleString();
     var key = named + "_status";
-    console.log(timestamp, '-', named, ' is ', status);
+    //console.log(timestamp, '-', named, ' is ', status);
 
     var lastMsg = document.querySelectorAll('._9tCEa') ? document.querySelectorAll('._9tCEa')[0].lastChild.querySelector('.emojitext').innerText : "";
     
     if (status == 'online'){
-        var msg = new SpeechSynthesisUtterance(named + ' is ' + status + '.');
+        var notice = named + ' is ' + status + '.';
+        var msg = new SpeechSynthesisUtterance(notice);
         window.speechSynthesis.speak(msg);  
+        console.log(notice);
     }
 
     var current = window.localStorage.getItem(key);
