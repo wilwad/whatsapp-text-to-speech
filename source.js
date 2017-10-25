@@ -1,4 +1,5 @@
 /* whatsapp web chat list text-to-speech */
+
 /* whatsapp seems to hide the top nodes when u scroll to bottom & vice versa */
 var whatsapp_timerId = null;
 var whatsapp_iter = function(){
@@ -57,11 +58,11 @@ var whatsapp_iter = function(){
     }
     
     whatsapp_timerId = window.setInterval(whatsapp_iter, 1000 * 30);
-    console.log('Web.Whatsapp text to speech. Inited 2. Time ID is ', whatsapp_timerId);
+    console.log('Web.Whatsapp text to speech. Inited 2. Timer ID is ', whatsapp_timerId);
 };
 
 whatsapp_timerId = window.setInterval(whatsapp_iter, 1000 * 30);
-var initNotice = 'Web.Whatsapp text to speech. Inited 1. Time ID is ' + whatsapp_timerId;
+var initNotice = 'Web.Whatsapp text to speech. Inited 1. Timer ID is ' + whatsapp_timerId;
 var msg = new SpeechSynthesisUtterance(initNotice);
 window.speechSynthesis.speak(msg);
 console.log(initNotice);
@@ -94,13 +95,13 @@ var whatsapp_online = function(){
     
     var timestamp = new Date().toLocaleString();
     var key = named + "_status";
-    console.log(timestamp, '-', named, ' is ', status);
 
     var lastMsg = document.querySelectorAll('._9tCEa') ? document.querySelectorAll('._9tCEa')[0].lastChild.querySelector('.emojitext').innerText : "";
     
     if (status == 'online'){
         var msg = new SpeechSynthesisUtterance(named + ' is ' + status + '.');
         window.speechSynthesis.speak(msg);  
+        console.log(timestamp, '-', named, ' is ', status);
     }
 
     var current = window.localStorage.getItem(key);
@@ -117,3 +118,7 @@ var whatsapp_online = function(){
     
 };
 whatsapp_onlinestatus_timerId = window.setInterval(whatsapp_online, 1000 * 30);
+var initNotice = 'Web.Whatsapp text to speech online status. Inited 1. Timer ID is ' + whatsapp_onlinestatus_timerId;
+var msg = new SpeechSynthesisUtterance(initNotice);
+window.speechSynthesis.speak(msg);
+console.log(initNotice);
