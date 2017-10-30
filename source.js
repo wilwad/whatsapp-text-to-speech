@@ -42,7 +42,7 @@ var whatsapp_iter = function(){
                 console.log(person, ' said ', said);
 
                 var current = window.localStorage.getItem(person);
-                if (current == "" || current != said){
+                if (current != "" && current != said){
                     // save it
                     window.localStorage.setItem(person,said);
 
@@ -88,15 +88,20 @@ var whatsapp_online = function(){
     
     var status = 'offline';
     var named = sel[0].innerText;
-
-    if (sel.length == 2){
+ 
+    //console.warn('named',named);
+    
+    if (sel.length > 1){
         status = sel[1].innerText;
+        //console.warn('status',status);
     }
     
     var timestamp = new Date().toLocaleString();
     var key = named + "_status";
     //console.log(timestamp, '-', named, ' is ', status);
     var lastMsg = document.querySelectorAll('._9tCEa') ? document.querySelectorAll('._9tCEa')[0].lastChild.querySelector('.emojitext').innerText : "";
+    
+    //console.warn('lastMsg',lastMsg);
     
     if (status == 'online'){
         var notice = named + ' is ' + status + '.';
