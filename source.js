@@ -12,13 +12,6 @@ var whatsapp_iter = function(){
     var idy = 1;
     var str = "";
 
-    search.push("wc joe-ann");
-    search.push("sirenga");
-    search.push("may");
-    search.push("belly");
-    search.push("kenneth"); 
-    search.push("queen");
-    search.push("chingu..."), 
     search.push("siteketa");
     search.push("bd selma");
     
